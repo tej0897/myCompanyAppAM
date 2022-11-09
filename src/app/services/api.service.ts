@@ -19,4 +19,12 @@ export class ApiService {
   public getAllCompany():Observable<Array<Company>>{
     return this.http.get<Array<Company>>(this.API + '/getAllCompanies');
   }
+
+  public putCompany(data: any, id : number){
+    return this.http.put<any>("http://localhost:8081/api/v1/updateCompany/"+id, data);
+  }
+
+  public deleteCompany(id: number){
+    return this.http.delete<any>("http://localhost:8081/api/v1/deleteCompany/"+id)
+  }
 }
